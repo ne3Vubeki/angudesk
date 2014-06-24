@@ -1,0 +1,50 @@
+.stylish__forms__auth {
+
+	.forms_input__block {
+		margin-bottom: 30px;
+	}
+
+	.forms_checkbox__block {
+		margin-top: -12px;
+		margin-bottom: 7px;
+	}
+
+	label {
+		color: $colorGray;
+		font: fontSize(16px)/lineHeight(20px) $fontFamilySans;
+
+		 &.forms__checkbox {
+			 font-size: fontSize(14px);
+		 }
+	}
+
+	input[type=text],
+	input[type=email],
+	input[type=password] {
+		font: fontSize(14px)/lineHeight(18px) $fontFamilySans;
+		border: none;
+		border-bottom: 1px solid $colorGray;
+		width: 100%;
+		margin-top: -2px;
+	}
+
+	input:-webkit-autofill {
+		-webkit-box-shadow: 0 0 0px 1000px $colorWhite inset;
+	}
+
+	input[type=checkbox] + label:before {
+		content: '';
+		height: 18px;
+		width: 18px;
+		margin: 7px 8px 10px 0;
+		display: inline-block;
+		vertical-align: middle;
+		background-size: contain;
+		background-image: inline-image('icons/svg/checkbox_off.svg');
+	}
+
+	input[type=checkbox]:checked + label:before {
+		background-image: inline-image('icons/svg/checkbox_on.svg');
+	}
+
+}

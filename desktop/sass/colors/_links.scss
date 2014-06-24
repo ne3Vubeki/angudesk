@@ -1,0 +1,35 @@
+@each $color in $colors {
+	a.text#{nth($color, 1)},
+	.text#{nth($color, 1)} > a {
+		color: nth($color, 2);
+        background-image: linear-gradient(to right, rgba(nth($color, 2), .5), rgba(nth($color, 2), .5) 100%);
+        background-position: 0 92%;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+
+		&:hover {
+          background-image: linear-gradient(to right, nth($color, 2), nth($color, 2) 100%);
+        }
+	}
+
+    a.dashed#{nth($color, 1)},
+    .dashed#{nth($color, 1)} {
+      background-image: linear-gradient(to right, rgba(nth($color, 2), .5), rgba(nth($color, 2), .5) 60%, transparent 60%);
+      background-position: 0 92%;
+      background-size: 5px 1px;
+      background-repeat: repeat-x;
+
+      &:hover {
+        background-image: linear-gradient(to right, nth($color, 2), nth($color, 2) 60%, transparent 60%);
+      }
+    }
+
+}
+
+.noLine, .noLine>a {
+	background-image: none !important;
+
+	&:hover {
+		background-image: none !important;
+	}
+}

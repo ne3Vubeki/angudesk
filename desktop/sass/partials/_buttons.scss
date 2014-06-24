@@ -1,0 +1,64 @@
+@mixin button-base($borderRadius: 3px, $cursor: pointer) {
+		display: inline-block;
+
+		width: auto;
+		height: auto;
+
+		padding: 8px 10px 7px;
+		text-align: center;
+
+		cursor: $cursor;
+		text-decoration: none;
+		text-transform: uppercase;
+		
+		border-radius: $borderRadius;
+
+		font: 600 fontSize(11px)/lineHeight(12px) $fontFamilySans;
+
+		text-shadow: 0 1px rgba(255,255,255,.4);
+
+		-webkit-touch-callout: none;
+		user-select: none;	
+}
+
+// default button style
+.button {
+	@include button-base;
+	
+	border: 1px solid #e2e3e6;
+	border-bottom: 1px solid #fff;
+	background-image: linear-gradient(to top, #e1e1e1, #f8f8f8);
+	box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.6);
+	
+	&:hover {
+		border: 1px solid #dcdcdc;
+		background-image: linear-gradient(to top, #f9f9f9, #fdfdfd);
+		box-shadow: none;		
+	}
+	
+	&:active {
+		border: 1px solid #dcdcdc;
+		background-image: linear-gradient(to top, #fff, #fff);
+		box-shadow: inset 0 0 4px #d6d5d5;
+	}
+
+	&.button__auth {
+		width: 100%;
+		padding: 17px 10px 20px;
+		font-size: 18px;
+	}
+}
+
+
+
+@each $color in $colors-base {
+	.buttonText#{nth($color, 1)} {
+		color: rgba(nth($color, 2), .8);
+		text-shadow: 0 1px 0 $colorBlack;
+
+		&:hover {
+			color: nth($color, 2);
+			text-shadow: 0 1px 0 rgba($colorBlack, .5);
+		}
+	}
+}

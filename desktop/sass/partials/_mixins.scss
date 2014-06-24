@@ -1,0 +1,9 @@
+@function fontSize($sizeInPx: $fontSize) {
+	$remMultiplier: $sizeInPx / 16px;
+	@return #{$fontSize * $remMultiplier};
+}
+
+@function lineHeight($sizeInPx: $lineHeight) {
+	$remMultiplier: $sizeInPx / 18px;
+	@return #{$lineHeight * $remMultiplier};
+}

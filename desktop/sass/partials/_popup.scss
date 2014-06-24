@@ -1,0 +1,37 @@
+.popup__menu
+{
+	position: absolute;
+	z-index: 1024;
+	width: 216px;
+	background: $colorNavyBlue;
+	margin: 19px 0 0 -172px; 
+	padding: 15px 0;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.24) 0 0 25px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.24) 0 0 25px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0 0 25px;	
+	
+	&:after
+	{
+		content: "";
+		border: 12px solid transparent;
+		border-bottom: 13px solid $colorNavyBlue;
+		position: absolute;
+		top: -25px;
+		left: 166px;
+	}
+	
+	li
+	{
+		&:hover
+		{
+			background: $colorDarkBlue;
+		}
+		
+		a
+		{
+			color: $colorWhite;
+			font: fontSize(14px)/lineHeight(32px) $fontFamilySans;
+			padding: 0 28px;
+		}
+	}	
+}

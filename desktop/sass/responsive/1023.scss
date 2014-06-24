@@ -1,0 +1,243 @@
+/* View < 1200px */
+@media (max-width: 1200px){
+	body {
+		font-size: 100%;
+
+		.isPhone {
+			display: none;
+		}
+		.isTablet {
+			display: block;
+		}
+	}
+}
+
+/* Max width 1024px and orientation: landscape for iPad in landscape */
+@media (max-device-width: 1024px) and (orientation: landscape){
+	body {
+		font-size: 67%;
+
+		.isPhone {
+			display: none;
+		}
+		.isTablet {
+			display: block;
+		}
+	}
+}
+/* Design for a width of 768px for iPad in portrait */
+@media (max-device-width: 1024px) and (orientation: portrait){
+	body {
+		font-size: 80%;
+
+		.isPhone {
+			display: none;
+		}
+		.isTablet {
+			display: block;
+		}
+	}
+}
+
+/* Design for a width of 740px for Tablet (Portrait) */
+@media only screen and (min-width: 768px) and (max-width: 959px) and (orientation: portrait){
+	body {
+		font-size: 80%;
+
+		.isPhone {
+			display: none;
+		}
+		.isTablet {
+			display: block;
+		}
+	}
+}
+/* Design for a width of 740px for Tablet (landscape) */
+@media only screen and (min-width: 768px) and (max-width: 959px) and (orientation: landscape){
+	body {
+		font-size: 80%;
+
+		.isPhone {
+			display: none;
+		}
+		.isTablet {
+			display: block;
+		}
+	}
+}
+
+/* Design for a width of 640px for Mobile (portrait) */
+@media only screen and (min-width: 640px) and (max-width: 767px) and (orientation: portrait){
+	body {
+		font-size: 77%;
+
+		.isPhone {
+			display: block;
+		}
+		.isTablet {
+			display: none;
+		}
+	}
+}
+/* Design for a width of 640px for Mobile (landscape) */
+@media only screen and (min-width: 640px) and (max-width: 767px) and (orientation: landscape){
+	body {
+		font-size: 77%;
+
+		.isPhone {
+			display: none;
+		}
+		.isTablet {
+			display: block;
+		}
+	}
+}
+
+/* Design for a width of 420px for Mobile (portrait) */
+@media only screen and (min-width: 601px) and (max-width: 639px) and (orientation: portrait){
+	body {
+		font-size: 100%;
+
+		.isPhone {
+			display: block;
+		}
+		.isTablet {
+			display: none;
+		}
+	}
+}
+/* Design for a width of 420px for Mobile (Landscape) */
+@media only screen and (min-width: 601px) and (max-width: 639px) and (orientation: landscape){
+	body {
+		font-size: 80%;
+
+		.isPhone {
+			display: none;
+		}
+		.isTablet {
+			display: block;
+		}
+	}
+}
+
+/* Mobile width < 600px landscape*/
+@media (max-width: 600px) and (orientation: landscape){
+	body {
+		font-size: 60%;
+
+		.isPhone {
+			display: none;
+		}
+		.isTablet {
+			display: block;
+		}
+	}
+}
+/* Mobile width < 600px */
+@media (max-width: 600px) and (orientation: portrait){
+	body {
+		font-size: 100%;
+
+		.isPhone {
+			display: block;
+		}
+		.isTablet {
+			display: none;
+		}
+	}
+}
+
+/* Mobile width < 480px landscape*/
+@media (max-width: 480px) and (orientation: landscape){
+	body {
+		font-size: 61.6%;
+
+		.isPhone {
+			display: block;
+		}
+		.isTablet {
+			display: none;
+		}
+	}
+}
+/* Mobile width < 480px */
+@media (max-width: 480px) and (orientation: portrait){
+	body {
+		font-size: 77%;
+
+		.isPhone {
+			display: block;
+		}
+		.isTablet {
+			display: none;
+		}
+	}
+}
+
+/* Mobile width < 360px landscape*/
+@media (max-width: 360px) and (orientation: landscape){
+	body {
+		font-size: 58.4%;
+
+		.isPhone {
+			display: block;
+		}
+		.isTablet {
+			display: none;
+		}
+	}
+}
+/* Mobile width < 360px */
+@media (max-width: 360px) and (orientation: portrait){
+	body {
+		font-size: 73%;
+
+		.isPhone {
+			display: block;
+		}
+		.isTablet {
+			display: none;
+		}
+	}
+}
+
+/* Mobile width < 320px landscape*/
+@media (max-width: 320px) and (orientation: landscape){
+	body {
+		font-size: 50.4%;
+
+		.isPhone {
+			display: block;
+		}
+		.isTablet {
+			display: none;
+		}
+	}
+}
+/* Mobile width < 320px portrait*/
+@media (max-width: 320px) and (orientation: portrait){
+	body {
+		font-size: 61%;
+
+		.isPhone {
+			display: block;
+		}
+		.isTablet {
+			display: none;
+		}
+	}
+}
+
+/* Mobile width < 240px */
+@media (max-width: 240px) and (orientation: portrait){
+	body {
+		font-size: 43%;
+
+		.isPhone {
+			display: block;
+		}
+		.isTablet {
+			display: none;
+		}
+	}
+}

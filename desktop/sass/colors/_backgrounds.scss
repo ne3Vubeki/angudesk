@@ -1,0 +1,5 @@
+@each $color in $colors {
+	.bg#{nth($color, 1)} {
+		background-color: nth($color, 2);
+	}
+}
