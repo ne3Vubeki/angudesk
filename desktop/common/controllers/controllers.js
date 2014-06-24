@@ -10,41 +10,38 @@ app.controller('RootCtrl', [
 	'$cacher',
 	function($scope, $rootScope, $query, $location, $popup, prettyDate, $cacher) {
 
-		var locate = $location.path();
+		// глобальная переменная локализации приложения
+		$rootScope.locale = {};
 
 		// global user object
 		$rootScope.user = {};
 
 		// слушатели событий авториазции
-		$scope.authStatus = 'signout';
-
+		$scope.authStatus = false;
 		$scope.$on('authorizeOn', function(event, user) {
 			$rootScope.user = user;
-			$scope.authStatus = 'signin';
+			$scope.authStatus = true;
 		});
-
 		$scope.$on('authorizeOff', function() {
 			$rootScope.user = {};
-			$scope.authStatus = 'signout';
+			$scope.authStatus = false;
 		});
 
 		// проверка авторизации
 		$query.
-			get('/userInfo/', '', true).			// true - не кэшировать данные
+			get('/userInfo/', '', true).		// вставлять свой метод API, true - не кэшировать данные
 			then( function(data) {
 				if(data.error) {
-					$scope.error = data.message;
 				}
 				else
 				if(data.user) {
 					$scope.$broadcast('authorizeOn', data.user);
 				}
 			}, function(error) {
-				var e = error;
 			});
 
-		$rootScope.locale = {};
-
+		// функция преобразования url для ng-include
+		var locate = $location.path();
 		$rootScope.templateUrl = function(template, root) {
 			var page = locate.split('/')[1];
 			page = page ? '/pages/' + page + '/' : '/pages/main/';
@@ -58,16 +55,14 @@ app.controller('RootCtrl', [
 			return '/desktop' + page + 'templates/' + template + '.html';
 		};
 
+		// функция вставки css в ng-style
 		$rootScope.setStyle = function(s) {
             return s ? s : '';
         };
 
+		// функция вставки background-image в ng-style
 		$rootScope.setBackImage = function(s) {
             return s ? { 'background-image': 'url(' + s + ')' } : {};
-        };
-
-		$rootScope.setUser = function(d) {
-            $scope.user = d;
         };
 
 		// кастомизация даты
@@ -77,16 +72,7 @@ app.controller('RootCtrl', [
 
 		// локализация globalLocale
 		$query.
-			json('globalLocale', true).
-			then(function(d) {
-				for(var v in d) {
-					$scope.locale[v] = d[v];
-				}
-			});
-
-		// локализация navPanel
-		$query.
-			json('navPanel', true).
+			json('global', true).		// вставить свое название файла локализации, true - для root
 			then(function(d) {
 				for(var v in d) {
 					$scope.locale[v] = d[v];

@@ -108,7 +108,7 @@ app.run([
 						getRoutes(d[k].routes);
 					}
 				}
-			}
+			};
 
 		getRoutes(data);
 

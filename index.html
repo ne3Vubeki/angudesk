@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='ru' ng-app="app" ng-controller="RootCtrl">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="Cache-Control" content="private" />
+	<base href="/" />
+
+	<title>Angudesk</title>
+
+</head>
+
+<body>
+
+	<div class="desktop__main">
+		<div class="main__content__container" ng-view></div>
+	</div>
+
+	<!-- Скрипт загрузки фреймворка ----------------------------------------------------------------------------------->
+	<script id="deleteScript">
+		var b = document.getElementsByTagName('body')[0],
+			dh = [
+				"/__dir__/angular/angular.min.js",
+				"/__dir__/angular/angular-route.min.js",
+				"/__dir__/angular-other-libs/angular-route-segment.min.js"
+			],
+			sets = function(u){
+				var s = document.createElement("script");
+				s.type = "text/javascript";
+				s.async = false;
+				s.src = u || null;
+				b.appendChild(s);
+			};
+		for(var j in dh) {
+			sets(dh[j]);
+		}
+		b.removeChild(document.getElementById('deleteScript'));
+	</script>
+
+	<!-- Begin Auth Social -------------------------------------------------------------------------------------------->
+	<div id="fb-root"></div>
+	<div id="vk_api_transport"></div>
+
+</body>
+
+</html>
