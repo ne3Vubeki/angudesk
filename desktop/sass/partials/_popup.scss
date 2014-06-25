@@ -3,7 +3,7 @@
 	position: absolute;
 	z-index: 1024;
 	width: 216px;
-	background: $colorNavyBlue;
+	background: $colorWhite;
 	margin: 19px 0 0 -172px; 
 	padding: 15px 0;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.24) 0 0 25px;
@@ -14,7 +14,7 @@
 	{
 		content: "";
 		border: 12px solid transparent;
-		border-bottom: 13px solid $colorNavyBlue;
+		border-bottom: 13px solid $colorWhite;
 		position: absolute;
 		top: -25px;
 		left: 166px;
@@ -24,7 +24,7 @@
 	{
 		&:hover
 		{
-			background: $colorDarkBlue;
+			background: $colorWhite;
 		}
 		
 		a
