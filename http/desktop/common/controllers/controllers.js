@@ -71,13 +71,13 @@ app.controller('RootCtrl', [
 		};
 
 		// локализация globalLocale
-		$query.
+		/*$query.
 			json('global', true).		// вставить свое название файла локализации, true - для root
 			then(function(d) {
 				for(var v in d) {
 					$scope.locale[v] = d[v];
 				}
-			});
+			});*/
 
 		// open auth popup
 		$scope.authOpen = function() {
