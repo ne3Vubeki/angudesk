@@ -19,25 +19,30 @@
 	</div>
 
 	<!-- Скрипт загрузки фреймворка ----------------------------------------------------------------------------------->
-    <script type="application/javascript" src="/lib/script.js"></script>
     <script id="deleteScript">
-        $script("//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js", function() {
-            $script("//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js", function() {
-                $script("/lib/angular-route-segment.min.js", function () {
-                    $script("/desktop/app2.js", function () {
-                        $script([
-                            "/desktop/common/controllers/controllers.js",
-                            "/desktop/common/directives/directives.js",
-                            "/desktop/common/filters/filters.js",
-                            "/desktop/common/services/services.js"
-                        ], function() {
-                            var b = document.getElementsByTagName('body')[0];
-                            b.removeChild(document.getElementById('deleteScript'));
-                        });
-                    });
-                });
-            });
-        });
+        var b = document.getElementsByTagName('body')[0],
+                dh = [
+                    "/lib/script.js",
+                    "//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js",
+                    "//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js",
+                    "/lib/angular-route-segment.min.js",
+                    "/desktop/app2.js",
+                    "/desktop/common/controllers/controllers.js",
+                    "/desktop/common/directives/directives.js",
+                    "/desktop/common/filters/filters.js",
+                    "/desktop/common/services/services.js"
+                ],
+                sets = function(u){
+                    var s = document.createElement("script");
+                    s.type = "text/javascript";
+                    s.async = false;
+                    s.src = u || null;
+                    b.appendChild(s);
+                };
+        for(var j in dh) {
+            sets(dh[j]);
+        }
+        b.removeChild(document.getElementById('deleteScript'));
     </script>
 
 	<!-- Begin Auth Social -------------------------------------------------------------------------------------------->

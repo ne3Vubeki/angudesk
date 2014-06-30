@@ -24,7 +24,7 @@ app.service('$query', ['$http', '$q', '$locale', '$location','$cacher', function
 		if(root !== undefined) {
 			page = '/';
 		}
-		uri = $location.protocol() + '://' + $location.host() + '/' + app.DIR + page + 'templates/' + url + '.html';
+		uri = '/' + app.DIR + page + 'templates/' + url + '.html';
 		return that.get(uri, '', reload);
     };
 
@@ -35,7 +35,7 @@ app.service('$query', ['$http', '$q', '$locale', '$location','$cacher', function
 		if(root !== undefined) {
 			loc = '/';
 		}
-		uri = $location.protocol() + '://' + $location.host() + '/' + app.DIR + loc + 'json/' + $locale.id + '/' + url + '.json';
+		uri = '/' + app.DIR + loc + 'json/' + $locale.id + '/' + url + '.json';
 		return that.get(uri, '', reload);
     };
 
