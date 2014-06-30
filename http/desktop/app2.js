@@ -32,20 +32,27 @@ app.config([
 			service: $provide.service
 		};
 
-		app.social = {
-			facebook: {
-				token: "",
-				url: ""
-			},
-			vkontakte: {
-				token: "",
-				url: ""
-			},
-			googleplus: {
-				token: "",
-				url: ""
-			}
-		};
+        // social token data
+        app.social = {
+            facebook: {
+                token: "",
+                url: ""
+            },
+            vkontakte: {
+                token: "",
+                url: ""
+            },
+            googleplus: {
+                token: "",
+                url: ""
+            }
+        };
+
+        // application directory
+        app.DIR = 'desktop';
+
+        // API version
+        app.versionAPI = '1';
 
 		//todo Общая обработка запросов и ответов сервера - требует доработки или убрать и не использовать
 		$httpProvider.interceptors.push( function($q, $location) {
@@ -84,12 +91,12 @@ app.run([
 
 		$locale.id = 'ru-ru';
 
-		$http.get('/mobile/json/routes.json').success(function (data) {
+        $http.get('/' + app.DIR + '/json/routes.json').success(function (data) {
 
 			var resolver = function(itm) {
 					var dependencies = itm.scripts || [],
 						url, scrptUrl, loc = itm.url.split('/')[1];
-					url = '/mobile/pages/' + (loc ?  loc + '/' : 'main/');
+                    url = '/' + app.DIR + '/pages/' + (loc ?  loc + '/' : 'main/');
 
 					// добавление url скрипта контроллера
 					if(itm.controller) {

@@ -8,36 +8,37 @@
 	<meta http-equiv="Cache-Control" content="private" />
 	<base href="/" />
 
-	<title>Angudesk</title>
+	<title>NodeAngular</title>
 
 </head>
 
 <body>
 
 	<div class="desktop__main">
-		<div class="main__content__container" ng-view></div>
+		<div class="main__content__container" app-view-segment="0"></div>
 	</div>
 
 	<!-- Скрипт загрузки фреймворка ----------------------------------------------------------------------------------->
-	<script id="deleteScript">
-		var b = document.getElementsByTagName('body')[0],
-			dh = [
-				"/__dir__/angular/angular.min.js",
-				"/__dir__/angular/angular-route.min.js",
-				"/__dir__/angular-other-libs/angular-route-segment.min.js"
-			],
-			sets = function(u){
-				var s = document.createElement("script");
-				s.type = "text/javascript";
-				s.async = false;
-				s.src = u || null;
-				b.appendChild(s);
-			};
-		for(var j in dh) {
-			sets(dh[j]);
-		}
-		b.removeChild(document.getElementById('deleteScript'));
-	</script>
+    <script type="application/javascript" src="/lib/script.js"></script>
+    <script id="deleteScript">
+        $script("//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js", function() {
+            $script("//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js", function() {
+                $script("/lib/angular-route-segment.min.js", function () {
+                    $script("/desktop/app2.js", function () {
+                        $script([
+                            "/desktop/common/controllers/controllers.js",
+                            "/desktop/common/directives/directives.js",
+                            "/desktop/common/filters/filters.js",
+                            "/desktop/common/services/services.js"
+                        ], function() {
+                            var b = document.getElementsByTagName('body')[0];
+                            b.removeChild(document.getElementById('deleteScript'));
+                        });
+                    });
+                });
+            });
+        });
+    </script>
 
 	<!-- Begin Auth Social -------------------------------------------------------------------------------------------->
 	<div id="fb-root"></div>
