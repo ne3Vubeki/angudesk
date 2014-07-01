@@ -1,7 +1,13 @@
 'use strict';
 
 // query json factory
-app.service('$query', ['$http', '$q', '$locale', '$location','$cacher', '$route', function($http, $q, $locale, $location, $cacher, $route) {
+app.service('$query', [
+    '$http',
+    '$q',
+    '$cacher',
+    '$route',
+    '$locale',
+    function($http, $q, $cacher, $route, $locale) {
     var that = this,
 		param = function(data) {
 			if(!data) return;
