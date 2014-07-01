@@ -1,20 +1,25 @@
 {
     "main": {
 		"url": "/",
-		"templateUrl": "/desktop/pages/main/templates/main.html",
+		"templateUrl": "/main/templates/main.html",
 		"controller": "MainCtrl",
 		"directives": true,
         "routes": {
             "main.main": {
                 "url": "/",
-                "templateUrl": "/desktop/pages/main/templates/mainMain.html",
+                "templateUrl": "/main/templates/mainMain.html",
                 "controller": "MainMainCtrl"
+            },
+            "main.post": {
+                "url": "/post",
+                "templateUrl": "/post/templates/post.html",
+                "controller": "PostCtrl"
             }
         }
 	},
 	"e404": {
         "url": "/404",
-        "templateUrl": "/desktop/pages/404/templates/404.html",
+        "templateUrl": "/404/templates/404.html",
         "controller": "ErrorCtrl"
 	}
 }

@@ -91,18 +91,25 @@ app.run([
 						});
 					});
 
-					return deferred.promise;
+                    $route.dir = itm.templateUrl.split('/')[1];
+
+                    return deferred.promise;
 				}
-			},
+            },
+            localeUrl = function(url) {
+                return function() {
+                    $route.dir = url.split('/')[1]
+                }
+            },
 			getRoutes = function(d) {
 				for (var k in d) {
 					var currentRoute = d[k];
 					app.route.provider.when(currentRoute.url, {
-						templateUrl: currentRoute.templateUrl,
+						templateUrl: app.DIR + '/pages' + currentRoute.templateUrl,
 						controller: currentRoute.controller,
 						resolve: {
 							data: resolver(currentRoute)
-						}
+                        }
 					});
 					if(d[k].routes) {
 						getRoutes(d[k].routes);

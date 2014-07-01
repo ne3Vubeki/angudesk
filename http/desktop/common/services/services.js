@@ -1,7 +1,7 @@
 'use strict';
 
 // query json factory
-app.service('$query', ['$http', '$q', '$locale', '$location','$cacher', function($http, $q, $locale, $location, $cacher) {
+app.service('$query', ['$http', '$q', '$locale', '$location','$cacher', '$route', function($http, $q, $locale, $location, $cacher, $route) {
     var that = this,
 		param = function(data) {
 			if(!data) return;
@@ -18,19 +18,17 @@ app.service('$query', ['$http', '$q', '$locale', '$location','$cacher', function
 		};
 
     this.html = function(url, root, reload) {
-		var page = $location.path().split('/')[1], uri;
-		page = page ? '/pages/' + page + '/' : '/pages/main/';
+        var loc = '/pages/' + $route.dir + '/', uri;
 		// root только для загрузки json из /desktop/json...
 		if(root !== undefined) {
-			page = '/';
+            loc = '/';
 		}
-		uri = '/' + app.DIR + page + 'templates/' + url + '.html';
+		uri = '/' + app.DIR + loc + 'templates/' + url + '.html';
 		return that.get(uri, '', reload);
     };
 
     this.json = function(url, root, reload) {
-        var loc = $location.path().split('/')[1], uri;
-        loc = loc ? '/pages/' + loc + '/' : '/pages/main/';
+        var loc = '/pages/' + $route.dir + '/', uri;
 		// root только для загрузки json из /' + app.dir + '/json...
 		if(root !== undefined) {
 			loc = '/';

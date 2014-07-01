@@ -117,6 +117,8 @@ app.run([
 							});
 						});
 
+                        $route.dir = itm.templateUrl.split('/')[1];
+
 						return deferred.promise;
 					}
 				},
@@ -128,7 +130,7 @@ app.run([
 						app.route.segmentProvider.when(itm.url, j);
 						func.
 							segment(ende, {
-								templateUrl: itm.templateUrl,
+								templateUrl: app.DIR + '/pages' + itm.templateUrl,
 								controller:  itm.controller,
 								resolve: {
 									data: resolver(itm)
@@ -147,11 +149,11 @@ app.run([
 				app.route.segmentProvider.
 					when(data[root].url, root).
 					segment(root, {
-						templateUrl: data[root].templateUrl,
+						templateUrl: app.DIR + '/pages' + data[root].templateUrl,
 						controller:  data[root].controller,
 						resolve: {
 							data: resolver(data[root])
-						}
+                        }
 					});
 				if(data[root].routes)
 					rspEach(data[root].routes, app.route.segmentProvider.within(root));
